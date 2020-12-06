@@ -1,0 +1,10 @@
+<ul>
+  <% @expenses.each do |expense| %>
+    <li><%= expense.title %></li>
+    <li><%= expense.description %></li>
+    <li><%= expense.vydaj %></li>
+    
+    <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
+    <li><%= link_to "Update", edit_expense_path(expense) %></li>
+  <% end %>
+</ul>

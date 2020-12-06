@@ -1,0 +1,9 @@
+<%= form_for(@incomes) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :prijem %>
+  <%= f.number_field :prijem %>
+  <%= f.submit %>
+<% end %>
