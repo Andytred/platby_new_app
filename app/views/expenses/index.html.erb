@@ -1,37 +1,43 @@
-<ul>
-  <% @expenses.each do |expense| %>
-    <li><%= expense.title %></li>
-    <li><%= expense.description %></li>
-    <li><%= expense.vydaj %></li>
-    <li><%= expense.category %></li>
-    
-    
-    <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
-    <li><%= link_to "Update", edit_expense_path(expense) %></li>
-  <% end %>
-</ul>
+<div class="d-flex justify-content-around balance-sheet">
+  <div>
+    <h2>Expenses</h2>
+    <ul>
+        <% @expenses.each do |expense| %>
+          <li><strong><%= expense.title %></strong></li>
+          <li>Notes: <%= expense.description %></li>
+          <li>Amount: <%= expense.vydaj %> Eur</li>
+          <li>Category: <%= expense.category %></li>
+          <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
+          <%= link_to "Update", edit_expense_path(expense) %>
+        <% end %>
+      </ul>
+      <h1><strong>Expense total: <%= current_user.expenses.sum(:vydaj) %> Eur</strong></h1>
+  </div>
+  
+  <div>
+    <h2>Incomes</h2>
+    <ul>
+      <% @incomes.each do |income| %>
+        <li><strong><%= income.title %></strong></li>
+        <li>Notes: <%= income.description %></li>
+        <li>Amount: <%= income.prijem %> Eur</li>
+        <li>Category: <%= income.category %></li>
+          
+        <%= link_to "Delete", income_path(income), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Update", edit_income_path(income) %>
+      <% end %>
+    </ul>
+    <h1><strong>Income total: <%= current_user.incomes.sum(:prijem) %> Eur</strong></h1>
+  </div>
+  
+</div>  
 
-<ul>
-  <% @incomes.each do |income| %>
-    <li><%= income.title %></li>
-    <li><%= income.description %></li>
-    <li><%= income.prijem %></li>
-    <li><%= income.category %></li>
-    
-    <%= link_to "Delete", income_path(income), method: :delete, data: { confirm: "Are you sure?" } %>
-    <li><%= link_to "Update", edit_income_path(income) %></li>
-  <% end %>
-</ul>
+<div class="balance">
+  <h1 class="balance"><strong>Total:<%= current_user.incomes.sum(:prijem) - current_user.expenses.sum(:vydaj) %></strong></h1>
+  <td><%= link_to 'Add income', new_income_path, class: "btn btn-success" %></td>
+  <td><%= link_to 'Add expense', new_expense_path, class: "btn btn-warning" %></td>
+</div>
 
-Income total:<%= current_user.incomes.sum(:prijem)  %>
-
-Expense total:<%= current_user.expenses.sum(:vydaj) %>
-
-Total:<%= current_user.incomes.sum(:prijem) - current_user.expenses.sum(:vydaj)  %>
-
-
-<td><%= link_to 'Add income', new_income_path %></td>
-<td><%= link_to 'Add expense', new_expense_path %></td>
 
 
 

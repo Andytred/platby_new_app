@@ -1,16 +1,17 @@
-<div>
+<div class="container">
   <%= form_for(@expenses) do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :category %>
-    <%= f.select :category, ['Rent', 'Food', 'Dog', 'Cosmetic', 'Bills', 'Fun', 'Restaurant', 'Otherss'] %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :expense %>
-    <%= f.number_field :vydaj %>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <%= f.label :title  %>
+  <%= f.text_field :title %>
+  <%= f.label :category %>
+  <%= f.select :category, ['Rent', 'Food', 'Clothes', 'Dog', 'Cosmetic', 'Bills', 'Fun', 'Restaurant', 'Others'] %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :expense %>
+  <%= f.number_field :vydaj %>
+  <%= f.submit "Create expense"%>
+<% end %>
+
+  
 
 
 
