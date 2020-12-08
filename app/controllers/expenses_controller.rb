@@ -3,6 +3,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expenses = Expense.new
+    @incomes = Income.new
    
   end
 

@@ -28,6 +28,9 @@ Expense total:<%= current_user.expenses.sum(:vydaj) %>
 Total:<%= current_user.incomes.sum(:prijem) - current_user.expenses.sum(:vydaj)  %>
 
 
+<td><%= link_to 'Add income', new_income_path %></td>
+<td><%= link_to 'Add expense', new_expense_path %></td>
+
 
 
 
