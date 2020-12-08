@@ -3,11 +3,13 @@ class ExpensesController < ApplicationController
 
   def new
     @expenses = Expense.new
+   
   end
 
 def create
   @user = current_user
-		@expenses = @user.expenses.create(expens_params)
+        @expenses = @user.expenses.create(expens_params)
+        @incomes = Income.new
     
     if @expenses.save
       redirect_to expenses_path
@@ -19,11 +21,16 @@ def create
   def index
     
     @expenses = Expense.where(user: current_user)
+    @incomes = Income.where(user: current_user)
+    @total = Expense.all
+    
+
   end
 
   
   def show
     @expenses = Expense.find(params[:id]) 
+    
   end
 
   def edit

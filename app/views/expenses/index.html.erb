@@ -4,7 +4,31 @@
     <li><%= expense.description %></li>
     <li><%= expense.vydaj %></li>
     
+    
     <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
     <li><%= link_to "Update", edit_expense_path(expense) %></li>
   <% end %>
 </ul>
+
+<ul>
+  <% @incomes.each do |income| %>
+    <li><%= income.title %></li>
+    <li><%= income.description %></li>
+    <li><%= income.prijem %></li>
+    
+    <%= link_to "Delete", income_path(income), method: :delete, data: { confirm: "Are you sure?" } %>
+    <li><%= link_to "Update", edit_income_path(income) %></li>
+  <% end %>
+</ul>
+
+Income total:<%= current_user.incomes.sum(:prijem)  %>
+
+Expense total:<%= current_user.expenses.sum(:vydaj) %>
+
+Total:<%= current_user.incomes.sum(:prijem) - current_user.expenses.sum(:vydaj)  %>
+
+
+
+
+
+ 
