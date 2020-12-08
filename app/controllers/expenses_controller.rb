@@ -54,7 +54,7 @@ def create
   private
 
   def expens_params
-    params.require(:expense).permit(:title, :description, :vydaj)
+    params.require(:expense).permit(:title, :description, :vydaj, :category)
   end
 end
 

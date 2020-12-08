@@ -46,7 +46,7 @@ before_action :authenticate_user!
   private
 
   def income_params
-    params.require(:income).permit(:title, :description, :prijem)
+    params.require(:income).permit(:title, :description, :prijem, :category)
   end
 end
 

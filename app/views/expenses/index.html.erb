@@ -3,6 +3,7 @@
     <li><%= expense.title %></li>
     <li><%= expense.description %></li>
     <li><%= expense.vydaj %></li>
+    <li><%= expense.category %></li>
     
     
     <%= link_to "Delete", expense_path(expense), method: :delete, data: { confirm: "Are you sure?" } %>
@@ -15,6 +16,7 @@
     <li><%= income.title %></li>
     <li><%= income.description %></li>
     <li><%= income.prijem %></li>
+    <li><%= income.category %></li>
     
     <%= link_to "Delete", income_path(income), method: :delete, data: { confirm: "Are you sure?" } %>
     <li><%= link_to "Update", edit_income_path(income) %></li>
