@@ -1,8 +1,11 @@
-<h1>Create your own balance sheet</h1>
-<p>Personal balance sheet app</p>
 
-
-
-<td><%= link_to 'Add income', new_income_path %></td>
-<td><%= link_to 'Add expense', new_expense_path %></td>
-<td><%= link_to 'See the balance', expenses_path %></td>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Create <strong>your own </strong> balance <strong>sheet</strong>!</h1>
+        <a class="btn btn-lg btn-secondary btn-balance" href="/expenses">Check your balance</a>
+        <div class="btn-expense">
+            <a class="btn btn-lg btn-light" href="/expenses/new">Create new expense</a>
+            <a class="btn btn-lg btn-light" href="/incomes/new">Create new income</a>
+        </div>
+  </div>
+</div>
